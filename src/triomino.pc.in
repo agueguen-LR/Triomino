@@ -1,0 +1,14 @@
+prefix=${pcfiledir}/../..
+bindir=${prefix}/bin
+staticlibdir=${prefix}/lib
+sharedlibdir=${prefix}/lib
+includedir=${prefix}/include
+
+Version: @PROJECT_VERSION@
+
+Name: triomino
+Description: Triomino library
+
+Requires:
+Libs: -L${bindir} -L${staticlibdir} -L${sharedlibdir} -ltriomino
+Cflags: -I${includedir}
