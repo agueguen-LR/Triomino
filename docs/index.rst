@@ -10,11 +10,10 @@ Welcome to Triomino's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+    Introduction <README>
+    API <api>
 
 Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

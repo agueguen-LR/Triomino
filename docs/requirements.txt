@@ -1,0 +1,5 @@
+Sphinx>=8.1
+sphinx_rtd_theme>=3.0
+breathe>=4.35
+cclint>=0.4
+recommonmark>=0.7
