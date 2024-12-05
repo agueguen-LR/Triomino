@@ -12,7 +12,7 @@ enable_testing()
 
 add_subdirectory(src)
 add_subdirectory(test)
-#add_subdirectory(docs)
+add_subdirectory(docs)
 
 set(CPACK_SOURCE_GENERATOR "ZIP")
 set(CPACK_SOURCE_IGNORE_FILES "/build/;/.vscode/;/.git/;/idea/;~$;${CPACK_SOURCE_IGNORE_FILES}")
