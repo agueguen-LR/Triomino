@@ -25,7 +25,7 @@ int main(void) {
     Triomino* triomino = triomino_create_default();
     stream = fopen("empty", "r");
     assert(triomino_fread(triomino, stream) == NULL);
-    fclose(stream);
+    fclose(stream); // NOLINT build/include_what_you_use
     triomino_destroy(triomino);
   }
   triomino_finish();
