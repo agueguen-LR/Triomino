@@ -24,7 +24,7 @@ static int counter = 0;
 
 bool triomino_init(void) {
   if (!counter++) {
-    assert(printf("triomino: initialized\n"));
+    assert(printf("triomino: initialized\n")); // NOLINT build/include_what_you_use
   }
   return true;
 }
@@ -32,7 +32,7 @@ bool triomino_init(void) {
 bool triomino_finish(void) {
   if (counter) {
     if (!--counter) {
-      assert(printf("triomino: finished\n"));
+      assert(printf("triomino: finished\n")); // NOLINT build/include_what_you_use
     }
     return true;
   } else {
@@ -188,6 +188,6 @@ Triomino* triomino_fread(Triomino* triomino, FILE* stream) {
 
 const char* triomino_to_string(const Triomino* triomino) {
   static char buffer[32];
-  snprintf(buffer, sizeof buffer, "%u-%u-%u", triomino->a, triomino->b, triomino->c);
+  snprintf(buffer, sizeof buffer, "%u-%u-%u", triomino->a, triomino->b, triomino->c); // NOLINT build/include_what_you_use
   return buffer;
 }

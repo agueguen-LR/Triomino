@@ -26,7 +26,7 @@ int main(void) {
     rewind(stream);
     triomino_reset(triomino);
     assert(triomino_fread(triomino, stream) == triomino);
-    fclose(stream);
+    fclose(stream); // NOLINT build/include_what_you_use
     assert(triomino_get_a(triomino) == 1);
     assert(triomino_get_b(triomino) == 2);
     assert(triomino_get_c(triomino) == 3);

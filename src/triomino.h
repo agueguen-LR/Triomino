@@ -6,8 +6,8 @@
  * @copyright  BSD 3-Clause License
  */
 
-#ifndef TRIOMINO_H_
-#define TRIOMINO_H_
+#ifndef SRC_TRIOMINO_H_
+#define SRC_TRIOMINO_H_
 
 #include <stdbool.h>
 #include <stdio.h>
@@ -288,14 +288,14 @@ extern bool triomino_ca_ac_compatible(const Triomino* triomino1, const Triomino*
  * @param stream The stream.
  * @return The triomino written.
  */
-extern Triomino* triomino_fwrite(const Triomino* triomino, FILE* stream);
+extern Triomino* triomino_fwrite(const Triomino* triomino, FILE* stream); // NOLINT build/include_what_you_use
 /**
  * @brief Read a triomino from a stream.
  * @param triomino The triomino.
  * @param stream The stream.
  * @return The triomino read.
  */
-extern Triomino* triomino_fread(Triomino* triomino, FILE* stream);
+extern Triomino* triomino_fread(Triomino* triomino, FILE* stream); // NOLINT build/include_what_you_use
 
 /**
  * @brief Convert a triomino to a string.
@@ -304,4 +304,4 @@ extern Triomino* triomino_fread(Triomino* triomino, FILE* stream);
  */
 extern const char* triomino_to_string(const Triomino* triomino);
 
-#endif  // TRIOMINO_H_
+#endif  // SRC_TRIOMINO_H_
