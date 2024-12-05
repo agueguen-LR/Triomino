@@ -10,6 +10,9 @@ set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
 enable_testing()
 
+find_package(CcLint)
+enable_cclint()
+
 add_subdirectory(src)
 add_subdirectory(test)
 add_subdirectory(docs)
