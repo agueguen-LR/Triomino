@@ -46,6 +46,13 @@ Check style
 
    $ make cclint
 
+Run flaw finder
+~~~~~~~~~~~~~~~
+
+.. code:: shell-session
+
+  $ make flawfinder
+
 Build the docs
 ~~~~~~~~~~~~~~
 
