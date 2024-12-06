@@ -67,4 +67,4 @@ Build the docs
    $ make docs
 
 .. |Documentation Status| image:: https://readthedocs.org/projects/triomino/badge/?version=latest&style=flat
-   :target: http://c-arithmetic.readthedocs.io/en/latest/?badge=latest
+   :target: http://triomino.readthedocs.io/en/latest/?badge=latest
