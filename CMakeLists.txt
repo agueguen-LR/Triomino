@@ -10,6 +10,9 @@ set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
 enable_testing()
 
+find_package(CppCheck)
+enable_cppcheck()
+
 find_package(CcLint)
 enable_cclint()
 
