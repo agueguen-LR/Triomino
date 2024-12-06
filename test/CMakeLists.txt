@@ -15,11 +15,27 @@ foreach(FILENAME ${FILES})
   add_executable(${TEST} ${FILENAME} ${CMAKE_SOURCE_DIR}/src/triomino.h)
   add_dependencies(${TEST} triomino)
   target_link_libraries(${TEST} triomino)
-  if(VALGRIND)
-    add_test("${TEST}[normal]" ./${TEST})
-    add_test("${TEST}[valgrind]" ${VALGRIND} --leak-check=full --quiet --error-exitcode=1 ./${TEST})
+  if(${TEST} STREQUAL "test-generate")
+    # Custom command to run triomino-generate and verify output
+    add_custom_command(
+            OUTPUT initial.3
+            COMMAND triomino-generate initial.3
+            DEPENDS triomino-generate
+            COMMENT "Running triomino-generate to create initial.3"
+    )
+    add_custom_target(run_triomino_generate ALL DEPENDS initial.3)
+    if(VALGRIND)
+      add_test("${TEST}[normal]" ./test-generate initial.3)
+      add_test("${TEST}[valgrind]" ${VALGRIND} --leak-check=full --quiet --error-exitcode=1 ./test-generate initial.3)
+    else()
+      add_test("${TEST}" ./test-generate initial.3)
+    endif()
   else()
-    add_test("${TEST}" ./${TEST})
+    if(VALGRIND)
+      add_test("${TEST}[normal]" ./${TEST})
+      add_test("${TEST}[valgrind]" ${VALGRIND} --leak-check=full --quiet --error-exitcode=1 ./${TEST})
+    else()
+      add_test("${TEST}" ./${TEST})
+    endif()
   endif()
 endforeach()
-
