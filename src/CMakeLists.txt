@@ -37,3 +37,8 @@ install(
   DESTINATION cmake
 )
 
+find_package(Coverage)
+enable_coverage()
+
+find_package(HtmlCoverage)
+enable_html_coverage()
