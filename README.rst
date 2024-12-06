@@ -28,8 +28,7 @@ Compilation
 
    $ mkdir build
    $ cd build
-   $ cmake ../Triomino \
-       -DUSE_VALGRIND=1 \
+   $ cmake .. -DUSE_VALGRIND=1
    $ make
 
 Run test
@@ -45,6 +44,13 @@ Check style
 .. code:: shell-session
 
    $ make cclint
+
+Run flaw finder
+~~~~~~~~~~~~~~~
+
+.. code:: shell-session
+
+  $ make flawfinder
 
 Build the docs
 ~~~~~~~~~~~~~~

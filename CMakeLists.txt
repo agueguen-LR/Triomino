@@ -13,11 +13,14 @@ enable_testing()
 find_package(CcLint)
 enable_cclint()
 
+find_package(FlawFinder)
+enable_flaw_finder()
+
 add_subdirectory(src)
 add_subdirectory(test)
 add_subdirectory(docs)
 
 set(CPACK_SOURCE_GENERATOR "ZIP")
-set(CPACK_SOURCE_IGNORE_FILES "/build/;/.vscode/;/.git/;/idea/;~$;${CPACK_SOURCE_IGNORE_FILES}")
+set(CPACK_SOURCE_IGNORE_FILES "/build/;/.vscode/;/.venv/;/.git/;/.idea/;~$;${CPACK_SOURCE_IGNORE_FILES}")
 message(STATUS "CPACK_SOURCE_IGNORE_FILES=${CPACK_SOURCE_IGNORE_FILES}")
 include(CPack)
