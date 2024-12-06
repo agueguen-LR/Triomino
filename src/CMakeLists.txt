@@ -1,6 +1,9 @@
 
 add_library(triomino SHARED triomino.c triomino.h triomino.inc)
 
+add_executable(triomino-generate triomino-generate.c)
+target_link_libraries(triomino-generate triomino)
+
 install(
   TARGETS triomino
   LIBRARY DESTINATION lib
