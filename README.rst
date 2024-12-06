@@ -66,5 +66,7 @@ Build the docs
 
    $ make docs
 
+.. |Coveralls| image:: https://coveralls.io/repos/github/agueguen-LR/Triomino/badge.svg?branch=master
+   :target: https://coveralls.io/github/agueguen-LR/Triomino?branch=master
 .. |Documentation Status| image:: https://readthedocs.org/projects/triomino/badge/?version=latest&style=flat
    :target: http://triomino.readthedocs.io/en/latest/?badge=latest
