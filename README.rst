@@ -28,8 +28,7 @@ Compilation
 
    $ mkdir build
    $ cd build
-   $ cmake ../Triomino \
-       -DUSE_VALGRIND=1 \
+   $ cmake .. -DUSE_VALGRIND=1
    $ make
 
 Run test
