@@ -28,15 +28,21 @@ Compilation
 
    $ mkdir build
    $ cd build
-   $ cmake .. -DUSE_VALGRIND=1
+   $ cmake ..  \
+      -DBUILD_COVERAGE=1 \
+      -DBUILD_HTML_COVERAGE=1 \
+      -DUSE_VALGRIND=1 \
+      -DRUN_CPPCHECK=1
    $ make
 
-Run test
+Run test and code coverage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: shell-session
 
    $ make test
+   $ make coverage
+   $ make html-coverage
 
 Check style
 ~~~~~~~~~~~
