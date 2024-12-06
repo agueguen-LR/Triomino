@@ -1,7 +1,10 @@
 include_directories(${CMAKE_SOURCE_DIR}/src)
 
 find_package(Valgrind)
-
+message(STATUS "VALGRIND_EXECUTABLE=${VALGRIND_EXECUTABLE}")
+if(VALGRIND_EXECUTABLE)
+  set(VALGRIND ${VALGRIND_EXECUTABLE})
+endif()
 
 file(GLOB FILES "${CMAKE_SOURCE_DIR}/test/test-*.c")
 message(STATUS "FILES=${FILES}")
