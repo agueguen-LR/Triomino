@@ -4,8 +4,11 @@ add_library(triomino SHARED triomino.c triomino.h triomino.inc)
 add_executable(triomino-generate triomino-generate.c)
 target_link_libraries(triomino-generate triomino)
 
+add_executable(triomino-display triomino-display.c)
+target_link_libraries(triomino-display triomino)
+
 install(
-  TARGETS triomino triomino-generate
+  TARGETS triomino triomino-generate triomino-display
   LIBRARY DESTINATION lib
   ARCHIVE DESTINATION lib
   RUNTIME DESTINATION bin
