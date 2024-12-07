@@ -19,8 +19,8 @@
 
 int main(int argc, char *argv[]) {
   if (argc != 2) {
-    printf("Please add name of target file"); // NOLINT build/include_what_you_use
-    return 1;
+    perror("Please add name of target file");  // LCOV_EXCL_LINE
+    return EXIT_FAILURE;  // LCOV_EXCL_LINE Is covered by test-generate[no_args], not detected for some reason
   }
 
   int fd = open(argv[1], O_WRONLY | O_CREAT | O_EXCL, S_IRUSR | S_IWUSR);  // flawfinder: ignore
@@ -31,9 +31,9 @@ int main(int argc, char *argv[]) {
 
   FILE *file = fdopen(fd, "wb");
   if (!file) {
-    perror("Error converting file descriptor to FILE*");
-    close(fd);
-    return EXIT_FAILURE;
+    perror("Error converting file descriptor to FILE*");  // LCOV_EXCL_LINE
+    close(fd);  // LCOV_EXCL_LINE
+    return EXIT_FAILURE;  // LCOV_EXCL_LINE Not covered by a test, don't know how to simulate this case
   }
 
   triomino_init();
