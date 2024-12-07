@@ -24,5 +24,6 @@ if(SPHINX_EXECUTABLE AND DOXYGEN_EXECUTABLE)
             DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/html
             DESTINATION share/docs
             COMPONENT "Docs"
+            OPTIONAL
     )
 endif()

@@ -5,7 +5,7 @@ add_executable(triomino-generate triomino-generate.c)
 target_link_libraries(triomino-generate triomino)
 
 install(
-  TARGETS triomino
+  TARGETS triomino triomino-generate
   LIBRARY DESTINATION lib
   ARCHIVE DESTINATION lib
   RUNTIME DESTINATION bin
