@@ -187,7 +187,12 @@ Triomino* triomino_fread(Triomino* triomino, FILE* stream) {
 }
 
 const char* triomino_to_string(const Triomino* triomino) {
-  static char buffer[32];
-  snprintf(buffer, sizeof buffer, "%u-%u-%u", triomino->a, triomino->b, triomino->c); // NOLINT build/include_what_you_use
+  static char buffer[32]; // flawfinder: ignore
+  int written = snprintf(buffer, sizeof(buffer), "%u-%u-%u", triomino->a, triomino->b, triomino->c); // NOLINT build/include_what_you_use
+  if (written < 0 || written >= sizeof(buffer)) {
+    // Handle error: snprintf failed or output was truncated
+    fprintf(stderr, "Error: snprintf failed or output was truncated\n");
+    return NULL;
+  }
   return buffer;
 }
