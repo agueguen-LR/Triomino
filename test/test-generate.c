@@ -44,7 +44,9 @@ int main(int argc, char *argv[]) {
 
       // Ensure each triomino is unique
       for (int i = 0; i < triomino_count; i++) {
-        assert(triomino->a != unique_triominos[i]->a || triomino->b != unique_triominos[i]->b || triomino->c != unique_triominos[i]->c);
+        assert(triomino->a != unique_triominos[i]->a ||
+          triomino->b != unique_triominos[i]->b ||
+          triomino->c != unique_triominos[i]->c);
       }
       unique_triominos[triomino_count] = triomino_clone(triomino);
 
