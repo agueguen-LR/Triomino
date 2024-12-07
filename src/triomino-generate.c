@@ -9,7 +9,6 @@
  * @details    File name must be given as an argument, file cannot already exist.
  */
 
-#include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <fcntl.h>
@@ -29,8 +28,8 @@
  */
 int main(int argc, char *argv[]) {
   if (argc != 2) {
-    perror("Please add name of target file");  // LCOV_EXCL_LINE
-    return EXIT_FAILURE;  // LCOV_EXCL_LINE Is covered by test-generate[no_args], not detected for some reason
+    perror("Please add name of target file");
+    return EXIT_FAILURE;
   }
 
   int fd = open(argv[1], O_WRONLY | O_CREAT | O_EXCL, S_IRUSR | S_IWUSR);  // flawfinder: ignore
