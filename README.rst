@@ -1,8 +1,9 @@
 Triomino
-====================
+========
 |cmake| |Coveralls| |Documentation Status|
 
-School project for 2nd year at university, the goal is to implement many functionalities of the game 'Triominoes' based on the starting blocs we developped during lessons and the final test.
+School project for 2nd year at university, the goal is to implement many functionalities of the game 'Triominoes' based on the starting blocs we developed during lessons and the final test.
+
 The starting point for this project was the correction of the final test. These 'starting point' files have our teacher's, Christophe Demko, name and copyright at the top, and will most likely stay as they are.
 
 Progress
@@ -13,31 +14,62 @@ Step three, flawfinder, coverage and triomino-generate are done.
 Installation
 ------------
 
+Requirements
+~~~~~~~~~~~~
+
 .. code:: shell-session
 
    $ sudo apt install cmake gcc lcov cppcheck python-pip valgrind flawfinder doxygen
    $ git clone https://github.com/agueguen-LR/Triomino.git
    $ pip install -r Triomino/docs/requirements.txt
 
-Usage
------
-
 Compilation
 ~~~~~~~~~~~
 
+Create the build directory and compile the project.
+
 .. code:: shell-session
 
-   $ mkdir build
-   $ cd build
-   $ cmake ..  \
-      -DBUILD_COVERAGE=1 \
-      -DBUILD_HTML_COVERAGE=1 \
-      -DUSE_VALGRIND=1 \
-      -DRUN_CPPCHECK=1
-   $ make
+  $ mkdir build
+  $ cd build
+  $ cmake ..  \
+     -DBUILD_COVERAGE=1 \
+     -DBUILD_HTML_COVERAGE=1 \
+     -DUSE_VALGRIND=1 \
+     -DRUN_CPPCHECK=1
+  $ make
+
+Documentation
+~~~~~~~~~~~~~
+
+Generate the documentation.
+
+Documentation is generated in the build/docs directory.
+
+.. code:: shell-session
+
+  $ make docs
+
+Installation
+~~~~~~~~~~~~
+
+Install the project.
+
+Add -DCMAKE_INSTALL_PREFIX:"Install_directory" to cmake command if you want to install in a specific directory.
+
+.. code:: shell-session
+
+  $ make install
+
+Review Code
+-----------
 
 Run test and code coverage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Run the tests and check the code coverage.
+
+Code coverage is generated in the build/coverage directory.
 
 .. code:: shell-session
 
@@ -48,6 +80,8 @@ Run test and code coverage
 Check style
 ~~~~~~~~~~~
 
+Check the code style is in accord with the clang format.
+
 .. code:: shell-session
 
    $ make cclint
@@ -55,16 +89,27 @@ Check style
 Run flaw finder
 ~~~~~~~~~~~~~~~
 
+Check for any security issues in the code.
+
 .. code:: shell-session
 
   $ make flawfinder
 
-Build the docs
-~~~~~~~~~~~~~~
+Usage
+-----
+
+Generate Triominos
+~~~~~~~~~~~~~~~~~~
+
+Run the triomino-generate executable with the file name as argument.
+
+Fails if the file already exists.
+
+Generates all possible combinations of triominos and writes them to the file, named initial.3 here.
 
 .. code:: shell-session
 
-   $ make docs
+  $ triomino-generate initial.3
 
 
 .. |cmake| image:: https://github.com/agueguen-LR/Triomino/actions/workflows/cmake.yml/badge.svg
