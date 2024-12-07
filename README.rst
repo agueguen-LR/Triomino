@@ -8,7 +8,7 @@ The starting point for this project was the correction of the final test. These 
 Progress
 --------
 
-Step two, documentation and cclint, has completed.
+Step three, flawfinder, coverage and triomino-generate are done.
 
 Installation
 ------------
