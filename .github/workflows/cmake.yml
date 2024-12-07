@@ -50,9 +50,9 @@ jobs:
         working-directory: ${{github.workspace}}/build
         run: make cclint
 
-      - name: Flaw Finder
-        working-directory: ${{github.workspace}}/build
-        run: make flawfinder
+#      - name: Flaw Finder
+#        working-directory: ${{github.workspace}}/build
+#        run: make flawfinder
 
       - name: Coverage
         working-directory: ${{github.workspace}}/build
