@@ -69,7 +69,7 @@ Triomino* triomino_create_full(unsigned char a, unsigned char b, unsigned char c
   if (triomino) {
     return triomino_fill_full(triomino, a, b, c);
   }
-  return triomino; // LCOV_EXCL_LINE
+  return triomino;  // LCOV_EXCL_LINE
 }
 
 Triomino* triomino_create_default(void) {
@@ -187,12 +187,11 @@ Triomino* triomino_fread(Triomino* triomino, FILE* stream) {
 }
 
 const char* triomino_to_string(const Triomino* triomino) {
-  static char buffer[32]; // flawfinder: ignore
-  int written = snprintf(buffer, sizeof(buffer), "%u-%u-%u", triomino->a, triomino->b, triomino->c); // NOLINT build/include_what_you_use
+  static char buffer[32];  // flawfinder: ignore
+  int written = snprintf(buffer, sizeof(buffer), "%u-%u-%u", triomino->a, triomino->b, triomino->c);  // NOLINT build/include_what_you_use
   if (written < 0 || written >= sizeof(buffer)) {
-    // Handle error: snprintf failed or output was truncated
-    fprintf(stderr, "Error: snprintf failed or output was truncated\n");
-    return NULL;
+    perror("Error: snprintf failed or output was truncated\n");  // LCOV_EXCL_LINE NOLINT build/include_what_you_use
+    return NULL;  // LCOV_EXCL_LINE Not covered by a test, case is impossible to reproduce
   }
   return buffer;
 }
