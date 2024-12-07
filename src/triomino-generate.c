@@ -3,7 +3,10 @@
  *
  * @author     Adrien Gueguen <adrien.gueguen@etudiant.univ-lr.fr>
  * @date       2024
- * @copyright
+ * @copyright  None
+ * @brief      Generate all possible combinations of triominos and write them to a file.
+ * @details    Triominos are written in binary format.
+ * @details    File name must be given as an argument, file cannot already exist.
  */
 
 #include <assert.h>
@@ -17,6 +20,13 @@
 
 #include "triomino.inc"
 
+
+/**
+ * @brief Main function of the Triomino Generator application.
+ * @param argc The number of arguments, must be 2.
+ * @param argv The arguments.
+ * @return int: 0 on success, 1 on failure.
+ */
 int main(int argc, char *argv[]) {
   if (argc != 2) {
     perror("Please add name of target file");  // LCOV_EXCL_LINE
