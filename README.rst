@@ -111,6 +111,17 @@ Generates all possible combinations of triominos and writes them to the file, na
 
   $ triomino-generate initial.3
 
+Display Triominos
+~~~~~~~~~~~~~~~~~
+
+Run the triomino-display executable with the file name as argument.
+
+Prints all the triominos in the file (stored in binary format) into the console.
+
+.. code:: shell-session
+
+  $ triomino-display initial.3
+
 
 .. |cmake| image:: https://github.com/agueguen-LR/Triomino/actions/workflows/cmake.yml/badge.svg
    :target: https://github.com/agueguen-LR/Triomino/actions
