@@ -69,7 +69,7 @@ Triomino* triomino_create_full(unsigned char a, unsigned char b, unsigned char c
   if (triomino) {
     return triomino_fill_full(triomino, a, b, c);
   }
-  return triomino;
+  return triomino; // LCOV_EXCL_LINE
 }
 
 Triomino* triomino_create_default(void) {
