@@ -7,11 +7,12 @@ Welcome to Triomino's documentation!
 ====================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
     Introduction <README>
-    API <api>
+    Triomino Library <api>
+    Triomino Applications <applications>
 
 Indices and tables
 ==================
