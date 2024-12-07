@@ -18,17 +18,18 @@ foreach(FILENAME ${FILES})
   if(${TEST} STREQUAL "test-generate")
     # Custom command to run triomino-generate and verify output
     add_custom_command(
-            OUTPUT initial.3
-            COMMAND triomino-generate initial.3
+            OUTPUT test-initial.3
+            COMMAND ${CMAKE_COMMAND} -E remove -f test-initial.3
+            COMMAND triomino-generate test-initial.3
             DEPENDS triomino-generate
-            COMMENT "Running triomino-generate to create initial.3"
+            COMMENT "Running triomino-generate to create test-initial.3"
     )
-    add_custom_target(run_triomino_generate ALL DEPENDS initial.3)
+    add_custom_target(run_triomino_generate ALL DEPENDS test-initial.3)
     if(VALGRIND)
-      add_test("${TEST}[normal]" ./test-generate initial.3)
-      add_test("${TEST}[valgrind]" ${VALGRIND} --leak-check=full --quiet --error-exitcode=1 ./test-generate initial.3)
+      add_test("${TEST}[normal]" ./test-generate test-initial.3)
+      add_test("${TEST}[valgrind]" ${VALGRIND} --leak-check=full --quiet --error-exitcode=1 ./test-generate test-initial.3)
     else()
-      add_test("${TEST}" ./test-generate initial.3)
+      add_test("${TEST}" ./test-generate test-initial.3)
     endif()
   else()
     if(VALGRIND)
