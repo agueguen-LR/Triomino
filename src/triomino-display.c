@@ -4,7 +4,7 @@
  * @author     Adrien Gueguen <adrien.gueguen@etudiant.univ-lr.fr>
  * @date       2024
  * @copyright  None
- * @brief      Generate all triominos in a file.
+ * @brief      Display all triominos in a file.
  * @details    File must contain triominos in binary format.
  * @details    File name must be given as an argument, file cannot already exist.
  */
@@ -38,9 +38,9 @@ int main(int argc, char *argv[]) {
   }
   FILE *file = fdopen(fd, "rb");  // flawfinder: ignore
   if (file == NULL) {
-    perror("Error opening file stream");
-    close(fd);
-    return EXIT_FAILURE;
+    perror("Error opening file stream");  // LCOV_EXCL_LINE
+    close(fd);  // LCOV_EXCL_LINE
+    return EXIT_FAILURE;  // LCOV_EXCL_LINE Not covered by a test, don't know how to simulate this case
   }
 
   triomino_init();

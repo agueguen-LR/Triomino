@@ -41,6 +41,7 @@ int main(int argc, char *argv[]) {
     pid_t pid = fork();
     if (pid == -1) {
         perror("fork failed");
+        fclose(file);
         return EXIT_FAILURE;
     } else if (pid == 0) {
         execl(argv[1], argv[1], argv[2], NULL);
@@ -51,6 +52,7 @@ int main(int argc, char *argv[]) {
         waitpid(pid, &status, 0);
         if (WIFEXITED(status) && WEXITSTATUS(status) != 0) {
             printf("Child process exited with status %d\n", WEXITSTATUS(status));
+            fclose(file);
             return EXIT_FAILURE;
         }
     }
