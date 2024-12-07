@@ -39,6 +39,8 @@ set_property(TEST "test-generate[override]" PROPERTY WILL_FAIL TRUE)
 
 add_test("test-display[no_args]" ../src/triomino-display)
 set_property(TEST "test-display[no_args]" PROPERTY WILL_FAIL TRUE)
+add_test("test-display[no_such_file]" ../src/triomino-display no-file)
+set_property(TEST "test-display[no_such_file]" PROPERTY WILL_FAIL TRUE)
 
 add_executable(test-generate test-generate.c)
 add_dependencies(test-generate triomino)
