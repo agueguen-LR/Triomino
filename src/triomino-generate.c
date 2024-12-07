@@ -6,8 +6,12 @@
  * @copyright
  */
 
+#include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/stat.h>
 
 #include "triomino.h"
 
@@ -19,9 +23,16 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  FILE *file = fopen(argv[1], "wb");
-  if (!file) {
+  int fd = open(argv[1], O_WRONLY | O_CREAT | O_EXCL, S_IRUSR | S_IWUSR);  // flawfinder: ignore
+  if (fd == -1) {
     perror("Error opening file");
+    return EXIT_FAILURE;
+  }
+
+  FILE *file = fdopen(fd, "wb");
+  if (!file) {
+    perror("Error converting file descriptor to FILE*");
+    close(fd);
     return EXIT_FAILURE;
   }
 
